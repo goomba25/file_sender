@@ -48,11 +48,9 @@ bool ServerSocket::AcceptSocket()
 
 void ServerSocket::RecvFile()
 {
-    char file_name[BUF_SIZE];
-    memset(file_name, 0, BUF_SIZE);
-    recv(client_sock, file_name, BUF_SIZE, 0);
+    char file_name[200] = {0,};
+    recv(client_sock, file_name, 200, 0);
 
-    // strcat(path, file_name);
     std::ofstream output_stream(file_name, std::ios::out | std::ios::binary);
     std::cout << "이름: " << file_name << std::endl;
     int size = BUF_SIZE;

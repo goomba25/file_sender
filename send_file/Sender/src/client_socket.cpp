@@ -49,8 +49,11 @@ void ClientSocket::SendFile(char *file_name)
 
     input_stream.seekg(0, std::ios::beg); // 파일 처음으로 이동
 
-    send(sock, file_name, sizeof(file_name), 0);
-    std::cout << "Send: " << file_name << std::endl;
+    char file_name_packet[200] = {0,};
+    strcpy(file_name_packet, file_name);
+
+    send(sock, file_name_packet, 200, 0);
+    std::cout << "Send: " << file_name_packet << std::endl;
 
     while (!input_stream.eof())
     {
