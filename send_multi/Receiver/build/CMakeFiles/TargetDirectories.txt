@@ -1,0 +1,3 @@
+/home/felix/WorkSpace/my_ws/file_sender/send_multi/Receiver/build/CMakeFiles/Receiver.dir
+/home/felix/WorkSpace/my_ws/file_sender/send_multi/Receiver/build/CMakeFiles/edit_cache.dir
+/home/felix/WorkSpace/my_ws/file_sender/send_multi/Receiver/build/CMakeFiles/rebuild_cache.dir

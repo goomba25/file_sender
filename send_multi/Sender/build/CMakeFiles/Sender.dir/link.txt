@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Sender.dir/src/client_socket.cpp.o CMakeFiles/Sender.dir/src/main.cpp.o -o Sender 
