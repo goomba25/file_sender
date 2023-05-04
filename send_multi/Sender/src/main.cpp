@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <thread>
-#include <mutex>
 #include <string>
 #include <sys/socket.h>
 #include <arpa/inet.h>
@@ -12,21 +11,19 @@
 #define SERVER_IP "127.0.0.1"
 #define BUF_SIZE 1024
 
-void open_socket(std::mutex &mutex, char *file_name);
+void open_socket(char *file_name);
 
 int main(int argc, char *argv[])
 {
-    std::mutex mutex;
-    std::thread thread1 = std::thread(open_socket, std::ref(mutex), argv[1]);
-    std::thread thread2 = std::thread(open_socket, std::ref(mutex), argv[2]);
+    std::thread thread1 = std::thread(open_socket, argv[1]);
+    std::thread thread2 = std::thread(open_socket, argv[2]);
     thread1.join();
     thread2.join();
     return 0;
 }
 
-void open_socket(std::mutex &mutex, char *file_name)
+void open_socket(char *file_name)
 {
-    mutex.lock();
     ClientSocket client;
     if (!client.StringToBinary(SERVER_IP, PORT))
     {
@@ -40,5 +37,4 @@ void open_socket(std::mutex &mutex, char *file_name)
 
     client.SendFile(file_name);
     client.CloseSocket();
-    mutex.unlock();
 }

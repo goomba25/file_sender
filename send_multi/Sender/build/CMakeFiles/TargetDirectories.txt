@@ -1,3 +1,0 @@
-/home/felix/WorkSpace/my_ws/file_sender/send_multi/Sender/build/CMakeFiles/Sender.dir
-/home/felix/WorkSpace/my_ws/file_sender/send_multi/Sender/build/CMakeFiles/edit_cache.dir
-/home/felix/WorkSpace/my_ws/file_sender/send_multi/Sender/build/CMakeFiles/rebuild_cache.dir

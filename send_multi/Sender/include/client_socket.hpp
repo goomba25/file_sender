@@ -9,6 +9,11 @@
 
 #define BUF_SIZE 1024
 
+struct Packet{
+    int size;
+    char buffer[BUF_SIZE];
+};
+
 class ClientSocket : public Socket
 {
 private:

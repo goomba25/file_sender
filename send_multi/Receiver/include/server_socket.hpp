@@ -3,12 +3,16 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
-
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
 
 #define BUF_SIZE 1024
+
+struct Packet{
+    int size;
+    char buffer[BUF_SIZE];
+};
 
 class ServerSocket : public Socket
 {
@@ -20,7 +24,6 @@ public:
     bool BindSocket(uint16_t port);
     bool ListenSocket(int count);
     bool AcceptSocket();
-    void RecvFile();
-    void CloseAcceptSocket();
     void CloseListenSocket();
+    int GetSocket();
 };

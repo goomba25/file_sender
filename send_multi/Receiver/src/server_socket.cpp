@@ -46,31 +46,12 @@ bool ServerSocket::AcceptSocket()
     }
 }
 
-void ServerSocket::RecvFile()
-{
-    char file_name[200] = {0,};
-    recv(client_sock, file_name, 200, 0);
-
-    std::ofstream output_stream(file_name, std::ios::out | std::ios::binary);
-    std::cout << "이름: " << file_name << std::endl;
-    int size = BUF_SIZE;
-    while (size != 0)
-    {
-        memset(buffer, 0, sizeof(buffer));
-        size = recv(client_sock, buffer, sizeof(buffer), 0);
-        output_stream.write(buffer, sizeof(buffer));
-    }
-
-    output_stream.close();
-    std::cout << "Server Transfer Complete." << std::endl;
-}
-
 void ServerSocket::CloseListenSocket()
 {
     close(sock);
 }
 
-void ServerSocket::CloseAcceptSocket()
+int ServerSocket::GetSocket()
 {
-    close(client_sock);
+    return client_sock;
 }
